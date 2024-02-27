@@ -44,8 +44,7 @@ pipeline {
                             -Dsonar.sources=. \
                             -Dsonar.css.node=. \
                             -Dsonar.host.url=https://sonarqubeenterprise.eng.zaxbys.com \
-                            mvn sonar:sonar
-                        """
+                 """
                     }
                 }
             }
