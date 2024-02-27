@@ -33,21 +33,13 @@ pipeline {
 
         stage('SonarQube Analysis') {
             steps {
-                script {
-                    // Retrieve SonarQube Scanner tool installation directory
-                    def scannerHome = tool 'sonarqube-scanner'
-                    // Run SonarQube Scanner
-                    withSonarQubeEnv('sonarqube-server') {
-                        sh """
-                            ${scannerHome}/bin/sonar-scanner \
-                            -Dsonar.projectKey=test-sonarqube-practice \
-                            -Dsonar.sources=. \
-                            -Dsonar.css.node=. \
-                            -Dsonar.host.url=https://sonarqubeenterprise.eng.zaxbys.com \
-                 """
+              script{
+                // Run SonarQube scanner
+                withSonarQubeEnv(credentialsId: 'jenkins-sonarqube-enterprise-token') {
+                    sh 'mvn sonar:sonar'
                     }
                 }
             }
-        }
+       }
     }
 }
