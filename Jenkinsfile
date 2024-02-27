@@ -44,6 +44,7 @@ pipeline {
                             -Dsonar.sources=. \
                             -Dsonar.css.node=. \
                             -Dsonar.host.url=https://sonarqubeenterprise.eng.zaxbys.com
+                            -Dsonar.java.binaries=target/classes
                         """
                     }
                 }
