@@ -31,12 +31,14 @@ pipeline {
       }
     }
     stage('SonarQube Analysis') {
-            steps {
-                // Run SonarQube scanner
-                withSonarQubeEnv(credentialsId: 'jenkins-sonarqube-enterprise-token') {
-                    sh 'mvn sonar:sonar'
-                }
+    steps {
+        script {
+            def scannerHome = tool 'SonarQubeScanner'
+            withSonarQubeEnv(installationName: 'SonarQubeServer', credentialsId: 'jenkins-sonarqube-enterprise-token') {
+                sh "${scannerHome}/bin/sonar-scanner"
             }
         }
-  }
+    }
+}
+
 }
