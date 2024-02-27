@@ -43,7 +43,7 @@ pipeline {
                             -Dsonar.projectKey=test-sonarqube-practice \
                             -Dsonar.sources=. \
                             -Dsonar.css.node=. \
-                            -Dsonar.host.url=https://sonarqubeenterprise.eng.zaxbys.com
+                            -Dsonar.host.url=https://sonarqubeenterprise.eng.zaxbys.com \
                             -Dsonar.java.binaries=target/classes
                         """
                     }
