@@ -5,7 +5,6 @@ pipeline {
     tools {
         jdk 'Java17'
         maven 'Maven3'
-        sonarqube 'sonarqube-scanner'
     }
     stages {
         stage("Clean Workspace") {
